@@ -8,9 +8,23 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 
 const LinkForm = () => {
-  const [isError, setIsError] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [shortedURL, setShortedURL] = useState("");
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const getShortedURL = async (url: string) => {
+    const body = JSON.stringify({
+      url: url,
+    });
+
+    const shorted = await fetch("/api/link", {
+      body,
+      method: "POST",
+    }).then((res) => res.json());
+
+    return shorted;
+  };
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const url = e.currentTarget.url.value as string;
@@ -20,16 +34,34 @@ const LinkForm = () => {
       return;
     }
 
+    const shorted = await getShortedURL(url);
+    console.log(shorted);
+
+    setShortedURL(shorted.url);
+
     setIsError(false);
   };
 
   return (
     <div className="w-full">
       <form className="w-full" onSubmit={onSubmit}>
-        <div>
-          <label htmlFor="url">URL</label>
-          <Input className="mt-1" id="url" type="url" />
-        </div>
+        {shortedURL ? (
+          <div>
+            <p>Shorted URL:</p>
+            <a
+              className="text-blue-500 underline"
+              href={`http://${shortedURL}`}
+              target="_blank"
+            >
+              {shortedURL}
+            </a>
+          </div>
+        ) : (
+          <div>
+            <label htmlFor="url">URL</label>
+            <Input className="mt-1" id="url" type="url" />
+          </div>
+        )}
 
         {isError ? (
           <div className="mt-2">

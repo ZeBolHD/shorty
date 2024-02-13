@@ -13,6 +13,5 @@ export function isValidURL(str: string) {
     return false;
   }
 
-  console.log(url.pathname);
   return url.protocol === "http:" || url.protocol === "https:";
 }
