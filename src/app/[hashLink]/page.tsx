@@ -1,12 +1,11 @@
 interface HashLinkPageParams {
   params: {
-    hashLink: string
-  }
+    hashLink: string;
+  };
 }
 
 export default function HashLinkPage({ params }: HashLinkPageParams) {
-
-  console.log(params.hashLink)
+  console.log(params.hashLink);
 
   return <div>Page</div>;
 }
