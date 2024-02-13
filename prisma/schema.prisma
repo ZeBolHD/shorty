@@ -9,8 +9,8 @@ datasource db {
 
 model Link {
   id            Int @default(autoincrement())   @id
-  url           String
-  hash          String
+  url           String @unique
+  hash          String @unique
   click         Int
   createdAt     DateTime @default(now())
 }
