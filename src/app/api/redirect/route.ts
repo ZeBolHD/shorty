@@ -24,7 +24,18 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ Error: "Wrong hash" }, { status: 400 });
   }
 
+  await prisma.link.update({
+    where: {
+      hash: hash,
+    },
+    data: {
+      click: {
+        increment: 1,
+      },
+    },
+  });
+
   const url = hashedLink.url;
 
-  return NextResponse.redirect(url, { status: 302 });
+  return NextResponse.json(url, { status: 302 });
 }
