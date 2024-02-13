@@ -11,6 +11,6 @@ model Link {
   id            Int @default(autoincrement())   @id
   url           String @unique
   hash          String @unique
-  click         Int
+  click         Int @default(0)
   createdAt     DateTime @default(now())
 }
