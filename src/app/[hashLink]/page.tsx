@@ -4,8 +4,10 @@ interface HashLinkPageParams {
   };
 }
 
-export default function HashLinkPage({ params }: HashLinkPageParams) {
+const HashLinkPage = ({ params }: HashLinkPageParams) => {
   console.log(params.hashLink);
 
   return <div>Page</div>;
-}
+};
+
+export default HashLinkPage;

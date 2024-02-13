@@ -1,7 +1,11 @@
-export default function Home() {
+import LinkCard from "@/components/LinkCard";
+
+const Home = () => {
   return (
     <main className="w-full min-h-screen flex items-center justify-center">
-      <h1>Shorty</h1>
+      <LinkCard />
     </main>
   );
-}
+};
+
+export default Home;
