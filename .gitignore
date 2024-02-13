@@ -6,6 +6,11 @@
 .pnp.js
 .yarn/install-state.gz
 
+#deploy
+docker-compose.yml
+Dockerfile
+Makefile
+
 # testing
 /coverage
 
