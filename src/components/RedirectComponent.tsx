@@ -16,7 +16,7 @@ const RedirectComponent = ({ hash }: RedirectComponentProps) => {
       const url = await fetch("/api/redirect?hash=" + hash).then((res) =>
         res.json()
       );
-      router.push(url);
+      // router.push(url);
     } catch (e) {
       console.log(e);
     }
@@ -27,8 +27,8 @@ const RedirectComponent = ({ hash }: RedirectComponentProps) => {
   });
 
   return (
-    <main className="w-full min-h-screen flex justify-center items-center">
-      <Card className="w-[400px]">
+    <main className="w-full min-h-screen flex justify-center items-center max-mobile:px-4">
+      <Card className="w-[400px] max-mobile:w-full">
         <CardHeader>
           <h1 className="text-xl font-bold">Shorty</h1>
         </CardHeader>

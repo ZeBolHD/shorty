@@ -58,7 +58,12 @@ const LinkForm = () => {
           </div>
         ) : null}
 
-        <div className={cn("w-full mt-5 flex", shortedURL ? "gap-2" : "")}>
+        <div
+          className={cn(
+            "w-full mt-5 flex max-mobile:flex-col",
+            shortedURL ? "gap-2" : ""
+          )}
+        >
           {shortedURL ? (
             <>
               <LinkCopyButton shortedURL={shortedURL} />
