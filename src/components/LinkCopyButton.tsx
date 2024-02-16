@@ -25,11 +25,12 @@ const LinkCopyButton = ({ shortedURL }: linkCopyButtonProps) => {
       className={cn(
         "w-full bg-blue-500 hover:bg-blue-400 text-white",
         isLinkCopied
-          ? "animate-[pulse_2.5s_ease-in-out] bg-green-500"
+          ? "animate-[pulse_2.5s_ease-in-out] bg-green-500 hover:bg-green-400"
           : "transition-all duration-1000"
       )}
       type="button"
       onClick={copyToClipboard}
+      disabled={isLinkCopied}
     >
       {isLinkCopied ? "Copied!" : "Copy Link"}
     </Button>
