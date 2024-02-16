@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import copy from "copy-to-clipboard";
 
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -13,7 +14,8 @@ const LinkCopyButton = ({ shortedURL }: linkCopyButtonProps) => {
   const [isLinkCopied, setIsLinkCopied] = useState(false);
 
   const copyToClipboard = async () => {
-    navigator.clipboard.writeText(shortedURL);
+    copy(shortedURL);
+
     setIsLinkCopied(true);
     setTimeout(() => {
       setIsLinkCopied(false);
