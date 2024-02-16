@@ -6,6 +6,7 @@ import { isValidURL } from "@/lib/utils";
 
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import LinkInput from "./LinkInput";
 
 const LinkForm = () => {
   const [isError, setIsError] = useState(false);
@@ -57,10 +58,7 @@ const LinkForm = () => {
             </a>
           </div>
         ) : (
-          <div>
-            <label htmlFor="url">URL</label>
-            <Input className="mt-1" id="url" type="url" />
-          </div>
+          <LinkInput />
         )}
 
         {isError ? (
