@@ -16,7 +16,7 @@ const RedirectComponent = ({ hash }: RedirectComponentProps) => {
       const url = await fetch("/api/redirect?hash=" + hash).then((res) =>
         res.json()
       );
-      // router.push(url);
+      router.push(url);
     } catch (e) {
       console.log(e);
     }
