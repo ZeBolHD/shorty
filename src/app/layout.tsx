@@ -17,6 +17,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <meta name="viewport" content="width=device-width, user-scalable=no" />
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
+      <link
+        rel="apple-touch-icon"
+        href="/icon.png"
+        type="image/png"
+        sizes="200x200px"
+      />
       <body className={rubik.className}>{children}</body>
     </html>
   );
